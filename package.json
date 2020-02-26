@@ -1,0 +1,11 @@
+{
+  "name": "battleships",
+  "version": "1.0.0",
+  "description": "single player vs computer battleships game",
+  "main": "README.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
