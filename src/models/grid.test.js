@@ -27,4 +27,17 @@ describe('Battleships', () => {
 
     expect(grid.render()).toEqual(expected);
   });
+
+  it('should place a ship of length 4 horizontally at position [2, 3]', () => {
+    expected = emptyGrid()
+
+    expected[2][3].value = "s"
+    expected[2][4].value = "s"
+    expected[2][5].value = "s"
+    expected[2][6].value = "s"
+
+    grid.placeShip([2,3], 4, 'H')
+
+    expect(grid.render()).toEqual(expected);
+  });
 });

@@ -9,7 +9,7 @@ class Grid {
 
   placeShip = (location, length, direction) => {
     for(let i = 0; i < length; i ++) {
-      this.currentGrid[0][i].value = 's'
+      this.currentGrid[location[0]][location[1] + i].value = 's'
     }
   }
 
