@@ -53,7 +53,7 @@ describe('Battleships', () => {
     expect(grid.render()).toEqual(expected);
   });
 
-  it('should store each ship as an object', () => {
+  it('should store a ship as an object', () => {
     expected = emptyGrid();
 
     grid.placeShip([2, 3], 4, 'H');
