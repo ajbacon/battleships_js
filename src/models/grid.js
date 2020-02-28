@@ -1,7 +1,9 @@
 class Grid {
-  constructor() {
+  constructor(gridSize = 10) {
     this.currentGrid = this.newGrid();
     this.allShips = [];
+    // gridSize converted to 0 index
+    this.gridSize = gridSize - 1;
   }
 
   render = () => {

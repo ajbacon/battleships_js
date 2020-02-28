@@ -144,7 +144,29 @@ describe('Battleships', () => {
     };
     expect(grid.placeShip([2, 6], 4, 'H')).toEqual(expected1);
     expect(grid.placeShip([1, 7], 4, 'V')).toEqual(null);
+  });
 
-    console.log(grid.render());
+  it('should place multiple ships and reject placement of others', () => {
+    grid.placeShip([0, 0], 4, 'H');
+    grid.placeShip([0, 0], 3, 'V');
+    grid.placeShip([5, 3], 3, 'V');
+    grid.placeShip([6, 2], 4, 'H');
+    grid.placeShip([2, 2], 2, 'H');
+
+    expected = emptyGrid();
+
+    expected[0][0].value = 's';
+    expected[0][1].value = 's';
+    expected[0][2].value = 's';
+    expected[0][3].value = 's';
+
+    expected[5][3].value = 's';
+    expected[6][3].value = 's';
+    expected[7][3].value = 's';
+
+    expected[2][2].value = 's';
+    expected[2][3].value = 's';
+
+    expect(grid.render()).toEqual(expected);
   });
 });
