@@ -11,12 +11,11 @@ class Grid {
   placeShip = (location, length, direction) => {
     let vStart = location[0];
     let hStart = location[1];
-    let ship = { length: length, coords: [], direction: direction };
-    for (let i = 0; i < length; i++) {
-      ship.coords.push([vStart, hStart]);
-      this.currentGrid[vStart][hStart].value = 's';
-      direction === 'H' ? hStart++ : vStart++;
+    if (this.isLimitExceeded(hStart, length)) {
+      return null;
     }
+    let updatedCoords = this.updateGrid(vStart, hStart, length, direction, 's');
+    let ship = { length: length, coords: updatedCoords, direction: direction };
     this.allShips.push(ship);
     return ship;
   };
@@ -33,8 +32,24 @@ class Grid {
     return emptyGrid;
   };
 
+  updateGrid = (vStart, hStart, length, direction, type) => {
+    let updatedCoords = [];
+    for (let i = 0; i < length; i++) {
+      updatedCoords.push([vStart, hStart]);
+      this.currentGrid[vStart][hStart].value = type;
+      direction === 'H' ? hStart++ : vStart++;
+    }
+    return updatedCoords;
+  };
+
   ships = () => {
     return this.allShips;
+  };
+
+  isLimitExceeded = (hStart, length) => {
+    if (hStart + length - 1 > 9) {
+      return true;
+    }
   };
 }
 

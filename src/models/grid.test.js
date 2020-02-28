@@ -100,23 +100,19 @@ describe('Battleships', () => {
     expect(grid.ships()).toEqual([expected1, expected2]);
   });
 
-  // it('should not place a ship that exceeds the horizontal limit', () => {
-  //   let expected1;
-  //   let expected2;
-
-  //   grid.placeShip([2, 3], 4, 'H');
-  //   grid.placeShip([0, 0], 3, 'V');
-
-  //   expected2 = {
-  //     length: 3,
-  //     coords: [
-  //       [0, 0],
-  //       [1, 0],
-  //       [2, 0]
-  //     ],
-  //     direction: 'V'
-  //   };
-
-  //   expect(grid.ships()).toEqual([expected1, expected2]);
-  // });
+  it('should not place a ship that exceeds the horizontal limit', () => {
+    let expected1;
+    expected1 = {
+      length: 4,
+      coords: [
+        [2, 6],
+        [2, 7],
+        [2, 8],
+        [2, 9]
+      ],
+      direction: 'H'
+    };
+    expect(grid.placeShip([2, 6], 4, 'H')).toEqual(expected1);
+    expect(grid.placeShip([3, 7], 4, 'H')).toEqual(null);
+  });
 });
