@@ -54,8 +54,6 @@ describe('Battleships', () => {
   });
 
   it('should store a ship as an object', () => {
-    grid.placeShip([2, 3], 4, 'H');
-
     expected = {
       length: 4,
       coords: [
@@ -132,19 +130,21 @@ describe('Battleships', () => {
     expect(grid.placeShip([7, 3], 4, 'V')).toEqual(null);
   });
 
-  // it('should not place a ship that intersects with another ship', () => {
-  //   let expected1;
-  //   expected1 = {
-  //     length: 4,
-  //     coords: [
-  //       [6, 2],
-  //       [7, 2],
-  //       [8, 2],
-  //       [9, 2]
-  //     ],
-  //     direction: 'V'
-  //   };
-  //   expect(grid.placeShip([6, 2], 4, 'V')).toEqual(expected1);
-  //   expect(grid.placeShip([7, 3], 4, 'V')).toEqual(null);
-  // });
+  it('should not place a ship that intersects with another ship', () => {
+    let expected1;
+    expected1 = {
+      length: 4,
+      coords: [
+        [2, 6],
+        [2, 7],
+        [2, 8],
+        [2, 9]
+      ],
+      direction: 'H'
+    };
+    expect(grid.placeShip([2, 6], 4, 'H')).toEqual(expected1);
+    expect(grid.placeShip([1, 7], 4, 'V')).toEqual(null);
+
+    console.log(grid.render());
+  });
 });
