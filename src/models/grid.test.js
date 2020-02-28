@@ -66,10 +66,42 @@ describe('Battleships', () => {
           [2, 4],
           [2, 5],
           [2, 6]
-        ]
+        ],
+        direction: 'H'
       }
     ];
 
     expect(grid.ships()).toEqual(expected);
+  });
+
+  it('should store multiple ship objects', () => {
+    let expected1;
+    let expected2;
+
+    grid.placeShip([2, 3], 4, 'H');
+    grid.placeShip([0, 0], 3, 'V');
+
+    expected1 = {
+      length: 4,
+      coords: [
+        [2, 3],
+        [2, 4],
+        [2, 5],
+        [2, 6]
+      ],
+      direction: 'H'
+    };
+
+    expected2 = {
+      length: 3,
+      coords: [
+        [0, 0],
+        [1, 0],
+        [2, 0]
+      ],
+      direction: 'V'
+    };
+
+    expect(grid.ships()).toEqual([expected1, expected2]);
   });
 });

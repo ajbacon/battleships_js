@@ -1,6 +1,7 @@
 class Grid {
   constructor() {
     this.currentGrid = this.newGrid();
+    this.allShips = [];
   }
 
   render = () => {
@@ -10,10 +11,13 @@ class Grid {
   placeShip = (location, length, direction) => {
     let vStart = location[0];
     let hStart = location[1];
+    let ship = { length: length, coords: [], direction: direction };
     for (let i = 0; i < length; i++) {
+      ship.coords.push([vStart, hStart]);
       this.currentGrid[vStart][hStart].value = 's';
       direction === 'H' ? hStart++ : vStart++;
     }
+    this.allShips.push(ship);
   };
 
   newGrid = () => {
@@ -29,17 +33,8 @@ class Grid {
   };
 
   ships = () => {
-    return [
-      {
-        length: 4,
-        coords: [
-          [2, 3],
-          [2, 4],
-          [2, 5],
-          [2, 6]
-        ]
-      }
-    ];
+    console.log(this.allShips);
+    return this.allShips;
   };
 }
 
