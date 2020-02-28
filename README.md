@@ -1,3 +1,28 @@
+# Battleships
+
+todo:
+
+Player Grid
+
+- create an empty grid **done**
+- place a ship **done**
+- place ships of varying size **done**
+- place multiple ships **done**
+- prevent placing ships beyond grid limit
+- prevent placing ships over another ship
+
+Computer Grid
+
+- inherit player grid methods
+- add random placement of ships
+
+Playing game
+
+Front-end
+
+- render the grid
+-
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

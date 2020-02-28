@@ -11,7 +11,7 @@ class Grid {
   placeShip = (location, length, direction) => {
     let vStart = location[0];
     let hStart = location[1];
-    if (this.isLimitExceeded(hStart, length)) {
+    if (this.isLimitExceeded(vStart, hStart, length, direction)) {
       return null;
     }
     let updatedCoords = this.updateGrid(vStart, hStart, length, direction, 's');
@@ -46,10 +46,14 @@ class Grid {
     return this.allShips;
   };
 
-  isLimitExceeded = (hStart, length) => {
-    if (hStart + length - 1 > 9) {
-      return true;
+  isLimitExceeded = (vStart, hStart, length, direction) => {
+    let endCoord;
+    if (direction === 'V') {
+      endCoord = vStart + length - 1;
+    } else {
+      endCoord = hStart + length - 1;
     }
+    return endCoord > 9 ? true : false;
   };
 }
 

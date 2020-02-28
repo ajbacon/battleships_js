@@ -115,4 +115,36 @@ describe('Battleships', () => {
     expect(grid.placeShip([2, 6], 4, 'H')).toEqual(expected1);
     expect(grid.placeShip([3, 7], 4, 'H')).toEqual(null);
   });
+
+  it('should not place a ship that exceeds the vertical limit', () => {
+    let expected1;
+    expected1 = {
+      length: 4,
+      coords: [
+        [6, 2],
+        [7, 2],
+        [8, 2],
+        [9, 2]
+      ],
+      direction: 'V'
+    };
+    expect(grid.placeShip([6, 2], 4, 'V')).toEqual(expected1);
+    expect(grid.placeShip([7, 3], 4, 'V')).toEqual(null);
+  });
+
+  // it('should not place a ship that intersects with another ship', () => {
+  //   let expected1;
+  //   expected1 = {
+  //     length: 4,
+  //     coords: [
+  //       [6, 2],
+  //       [7, 2],
+  //       [8, 2],
+  //       [9, 2]
+  //     ],
+  //     direction: 'V'
+  //   };
+  //   expect(grid.placeShip([6, 2], 4, 'V')).toEqual(expected1);
+  //   expect(grid.placeShip([7, 3], 4, 'V')).toEqual(null);
+  // });
 });
