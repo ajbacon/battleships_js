@@ -18,6 +18,7 @@ class Grid {
       direction === 'H' ? hStart++ : vStart++;
     }
     this.allShips.push(ship);
+    return ship;
   };
 
   newGrid = () => {
@@ -33,7 +34,6 @@ class Grid {
   };
 
   ships = () => {
-    console.log(this.allShips);
     return this.allShips;
   };
 }
