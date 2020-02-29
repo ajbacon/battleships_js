@@ -1,9 +1,9 @@
 class Grid {
   constructor(gridSize = 10) {
+    // gridSize converted to 0 index
+    this.gridSize = gridSize;
     this.currentGrid = this.newGrid();
     this.allShips = [];
-    // gridSize converted to 0 index
-    this.gridSize = gridSize - 1;
   }
 
   render = () => {
@@ -24,9 +24,9 @@ class Grid {
 
   newGrid = () => {
     let emptyGrid = [];
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < this.gridSize; i++) {
       let newRow = [];
-      for (let j = 0; j < 10; j++) {
+      for (let j = 0; j < this.gridSize; j++) {
         newRow.push({ value: '-' });
       }
       emptyGrid.push(newRow);
@@ -61,7 +61,7 @@ class Grid {
     } else {
       endCoord = hStart + length - 1;
     }
-    return endCoord > 9 ? true : false;
+    return endCoord > this.gridSize - 1 ? true : false;
   };
 
   shipIntersect = (vStart, hStart, length, direction) => {
