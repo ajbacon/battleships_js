@@ -1,5 +1,5 @@
 import Grid from './grid';
-import { emptyGrid } from '../test-helper';
+import { emptyGrid } from '../../test-helper';
 
 describe('Battleships', () => {
   var grid;
