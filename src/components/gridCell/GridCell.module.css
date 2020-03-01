@@ -1,0 +1,5 @@
+.GridCell {
+  width: 3vw;
+  height: 3vw;
+  border: 1px solid black;
+}
