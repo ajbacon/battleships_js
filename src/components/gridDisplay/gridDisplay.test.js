@@ -18,7 +18,6 @@ describe('<GridDisplay />', () => {
   });
 
   it('renders without error', () => {
-    wrapper = setup(GridDisplay, { model: testGridModel });
     expect(gridDisplayComponent).toHaveLength(1);
   });
 });
