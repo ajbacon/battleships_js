@@ -15,6 +15,7 @@ describe('<GridDisplay />', () => {
   });
 
   it('renders without error', () => {
+    console.log(wrapper);
     expect(gridRowComponent).toHaveLength(1);
   });
 });

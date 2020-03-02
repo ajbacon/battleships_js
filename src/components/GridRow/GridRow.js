@@ -6,7 +6,12 @@ class GridRow extends React.Component {
   renderCells = () => {
     let res = [];
     for (let i = 0; i < 10; i++) {
-      res.push(<Cell />);
+      res.push(
+        <Cell
+          key={`${this.props.id}_cell${i}`}
+          id={`${this.props.id}_cell${i}`}
+        />
+      );
     }
     return res;
   };
