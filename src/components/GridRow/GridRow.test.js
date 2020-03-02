@@ -8,14 +8,20 @@ Enzyme.configure({ adapter: new EnzymeAdapter() });
 describe('<GridDisplay />', () => {
   let wrapper;
   let gridRowComponent;
+  let gridCellComponent;
 
   beforeEach(() => {
-    wrapper = setup(GridRow);
+    wrapper = setup(GridRow, { id: 0 });
     gridRowComponent = findByTestAttr(wrapper, 'component-grid-row');
   });
 
   it('renders without error', () => {
-    console.log(wrapper);
     expect(gridRowComponent).toHaveLength(1);
+  });
+
+  it('renders 10 cells with a row by default', () => {
+    console.log(wrapper.debug());
+    gridCellComponent = findByTestAttr(wrapper, 'component-grid-cell');
+    expect(gridCellComponent).toHaveLength(10);
   });
 });
