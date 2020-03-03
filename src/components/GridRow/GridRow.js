@@ -8,9 +8,11 @@ class GridRow extends React.Component {
     for (let i = 0; i < 10; i++) {
       res.push(
         <Cell
+          coord={[this.props.yCoord, i]}
           key={`${this.props.id}_cell${i}`}
           id={`${this.props.id}_cell${i}`}
           cellData={this.props.cells[i]}
+          onClick={this.props.onClick}
           data-test='component-grid-cell'
         />
       );

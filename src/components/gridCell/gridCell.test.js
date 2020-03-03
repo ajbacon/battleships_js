@@ -10,7 +10,7 @@ describe('<GridCell />', () => {
   let gridCellComponent;
 
   beforeEach(() => {
-    wrapper = setup(GridCell);
+    wrapper = setup(GridCell, { cellData: { value: '-' }, onClick: jest.fn() });
     gridCellComponent = findByTestAttr(wrapper, 'component-grid-cell');
   });
 
