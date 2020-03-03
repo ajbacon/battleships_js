@@ -9,10 +9,17 @@ describe('<GridDisplay />', () => {
   let wrapper;
   let gridRowComponent;
   let gridCellComponent;
+  const empty = { value: '-', shipId: null };
 
   beforeEach(() => {
-    wrapper = setup(GridRow, { id: 0 });
+    let cells = [];
+    for (let i = 0; i < 10; i++) {
+      cells.push(empty);
+    }
+
+    wrapper = setup(GridRow, { id: 'row0', cells: cells });
     gridRowComponent = findByTestAttr(wrapper, 'component-grid-row');
+    gridCellComponent = findByTestAttr(wrapper, 'component-grid-cell');
   });
 
   it('renders without error', () => {
@@ -20,8 +27,14 @@ describe('<GridDisplay />', () => {
   });
 
   it('renders 10 cells with a row by default', () => {
-    console.log(wrapper.debug());
-    gridCellComponent = findByTestAttr(wrapper, 'component-grid-cell');
     expect(gridCellComponent).toHaveLength(10);
+  });
+
+  it('passes cell coordinate as a prop to each cell', () => {
+    for (let i = 0; i < 10; i++) {
+      expect(
+        gridCellComponent.find({ id: `row0_cell${i}` }).props().cellData
+      ).toEqual(empty);
+    }
   });
 });

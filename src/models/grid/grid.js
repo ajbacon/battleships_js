@@ -27,7 +27,7 @@ class Grid {
     for (let i = 0; i < this.gridSize; i++) {
       let newRow = [];
       for (let j = 0; j < this.gridSize; j++) {
-        newRow.push({ value: '-' });
+        newRow.push({ value: '-', shipId: null });
       }
       emptyGrid.push(newRow);
     }

@@ -13,7 +13,8 @@
 //     it('should be able to place a single, horizontal, ship of length 4 at locations [0,0]', () => {
 //       wrapper = mount(<GridDisplay />);
 
-//       inputCell = wrapper.find({ id: row0_cell0 });
+//       inputCell = wrapper.find({ id: 'row0_cell0' });
+//       expect(1).toEqual(2);
 //     });
 //   });
 // });

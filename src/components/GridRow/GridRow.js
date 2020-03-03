@@ -10,6 +10,7 @@ class GridRow extends React.Component {
         <Cell
           key={`${this.props.id}_cell${i}`}
           id={`${this.props.id}_cell${i}`}
+          cellData={this.props.cells[i]}
           data-test='component-grid-cell'
         />
       );
