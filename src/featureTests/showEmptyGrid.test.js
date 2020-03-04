@@ -15,8 +15,8 @@ describe('showEmptyGrid', () => {
     wrapper = mount(<GridDisplay />);
     // console.log(wrapper.debug());
 
-    cell1 = wrapper.find({ id: 'row0_cell0' });
-    cell2 = wrapper.find({ id: 'row9_cell9' });
+    cell1 = wrapper.find({ id: 'r0_c0' });
+    cell2 = wrapper.find({ id: 'r9_c9' });
 
     expect(cell1).toHaveLength(1);
     expect(cell2).toHaveLength(1);
@@ -26,8 +26,8 @@ describe('showEmptyGrid', () => {
     wrapper = mount(<GridDisplay />);
     // console.log(wrapper.debug());
 
-    cell1 = wrapper.find({ id: 'row0_cell0' });
-    cell2 = wrapper.find({ id: 'row9_cell9' });
+    cell1 = wrapper.find({ id: 'r0_c0' });
+    cell2 = wrapper.find({ id: 'r9_c9' });
 
     console.log(cell1.props().cellData);
 
