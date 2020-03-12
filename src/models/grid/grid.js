@@ -10,7 +10,11 @@ class Grid {
     return this.currentGrid;
   };
 
-  receiveFire = coords => {
+  receiveFire = coord => {
+    let cell = this.currentGrid[coord[0]][coord[1]];
+    if (cell.value === 'x' || cell.value === 'o') {
+      return false;
+    }
     // check if grid already played
     // apply an X or a 0 for a hit or a miss
   };
