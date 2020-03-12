@@ -22,6 +22,11 @@ describe('Battleships', () => {
     expected[0][2].value = 's';
     expected[0][3].value = 's';
 
+    expected[0][0].shipID = 0;
+    expected[0][1].shipID = 0;
+    expected[0][2].shipID = 0;
+    expected[0][3].shipID = 0;
+
     grid.placeShip([0, 0], 4, 'H');
 
     expect(grid.render()).toEqual(expected);
@@ -35,6 +40,11 @@ describe('Battleships', () => {
     expected[2][5].value = 's';
     expected[2][6].value = 's';
 
+    expected[2][3].shipID = 0;
+    expected[2][4].shipID = 0;
+    expected[2][5].shipID = 0;
+    expected[2][6].shipID = 0;
+
     grid.placeShip([2, 3], 4, 'H');
 
     expect(grid.render()).toEqual(expected);
@@ -47,6 +57,11 @@ describe('Battleships', () => {
     expected[3][3].value = 's';
     expected[4][3].value = 's';
     expected[5][3].value = 's';
+
+    expected[2][3].shipID = 0;
+    expected[3][3].shipID = 0;
+    expected[4][3].shipID = 0;
+    expected[5][3].shipID = 0;
 
     grid.placeShip([2, 3], 4, 'V');
 
@@ -62,7 +77,8 @@ describe('Battleships', () => {
         [2, 5],
         [2, 6]
       ],
-      direction: 'H'
+      direction: 'H',
+      hits: [false, false, false, false]
     };
     expect(grid.placeShip([2, 3], 4, 'H')).toEqual(expected);
   });
@@ -82,7 +98,8 @@ describe('Battleships', () => {
         [2, 5],
         [2, 6]
       ],
-      direction: 'H'
+      direction: 'H',
+      hits: [false, false, false, false]
     };
 
     expected2 = {
@@ -92,7 +109,8 @@ describe('Battleships', () => {
         [1, 0],
         [2, 0]
       ],
-      direction: 'V'
+      direction: 'V',
+      hits: [false, false, false]
     };
 
     expect(grid.ships()).toEqual([expected1, expected2]);
@@ -108,7 +126,8 @@ describe('Battleships', () => {
         [2, 8],
         [2, 9]
       ],
-      direction: 'H'
+      direction: 'H',
+      hits: [false, false, false, false]
     };
     expect(grid.placeShip([2, 6], 4, 'H')).toEqual(expected1);
     expect(grid.placeShip([3, 7], 4, 'H')).toEqual(null);
@@ -124,7 +143,8 @@ describe('Battleships', () => {
         [8, 2],
         [9, 2]
       ],
-      direction: 'V'
+      direction: 'V',
+      hits: [false, false, false, false]
     };
     expect(grid.placeShip([6, 2], 4, 'V')).toEqual(expected1);
     expect(grid.placeShip([7, 3], 4, 'V')).toEqual(null);
@@ -140,7 +160,8 @@ describe('Battleships', () => {
         [2, 8],
         [2, 9]
       ],
-      direction: 'H'
+      direction: 'H',
+      hits: [false, false, false, false]
     };
     expect(grid.placeShip([2, 6], 4, 'H')).toEqual(expected1);
     expect(grid.placeShip([1, 7], 4, 'V')).toEqual(null);
@@ -166,6 +187,18 @@ describe('Battleships', () => {
 
     expected[2][2].value = 's';
     expected[2][3].value = 's';
+
+    expected[0][0].shipID = 0;
+    expected[0][1].shipID = 0;
+    expected[0][2].shipID = 0;
+    expected[0][3].shipID = 0;
+
+    expected[5][3].shipID = 1;
+    expected[6][3].shipID = 1;
+    expected[7][3].shipID = 1;
+
+    expected[2][2].shipID = 2;
+    expected[2][3].shipID = 2;
 
     expect(grid.render()).toEqual(expected);
   });

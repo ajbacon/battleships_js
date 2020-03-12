@@ -10,6 +10,11 @@ class Grid {
     return this.currentGrid;
   };
 
+  receiveFire = coords => {
+    // check if grid already played
+    // apply an X or a 0 for a hit or a miss
+  };
+
   placeShip = (location, length, direction) => {
     let vStart = location[0];
     let hStart = location[1];
@@ -17,7 +22,13 @@ class Grid {
       return null;
     }
     let updatedCoords = this.updateGrid(vStart, hStart, length, direction, 's');
-    let ship = { length: length, coords: updatedCoords, direction: direction };
+    let initialHits = Array(updatedCoords.length).fill(false);
+    let ship = {
+      length: length,
+      coords: updatedCoords,
+      direction: direction,
+      hits: initialHits
+    };
     this.allShips.push(ship);
     return ship;
   };
@@ -39,6 +50,7 @@ class Grid {
     for (let i = 0; i < length; i++) {
       updatedCoords.push([vStart, hStart]);
       this.currentGrid[vStart][hStart].value = type;
+      this.currentGrid[vStart][hStart].shipID = this.allShips.length;
       direction === 'H' ? hStart++ : vStart++;
     }
     return updatedCoords;
