@@ -1,23 +1,23 @@
 import Enzyme from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
-import GridDisplay from './GridDisplay';
+import GridPlayer from './GridPlayer';
 import { setup, findByTestAttr } from '../../test-helper';
 import Grid from '../../models/grid/grid';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
-describe('<GridDisplay />', () => {
+describe('<GridPlayer />', () => {
   let wrapper;
-  let gridDisplayComponent;
+  let gridPlayerComponent;
   let testGridModel;
 
   beforeEach(() => {
     testGridModel = new Grid();
-    wrapper = setup(GridDisplay, { model: testGridModel });
-    gridDisplayComponent = findByTestAttr(wrapper, 'component-grid-display');
+    wrapper = setup(GridPlayer, { model: testGridModel });
+    gridPlayerComponent = findByTestAttr(wrapper, 'component-grid-player');
   });
 
   it('renders without error', () => {
-    expect(gridDisplayComponent).toHaveLength(1);
+    expect(gridPlayerComponent).toHaveLength(1);
   });
 });

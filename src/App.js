@@ -1,5 +1,5 @@
 import React from 'react';
-import GridDisplay from './components/GridDisplay/GridDisplay';
+import GridDisplay from './components/GridPlayer/GridPlayer';
 import GridComputer from './components/GridComputer/GridComputer';
 import './App.css';
 import Classes from './App.module.css';

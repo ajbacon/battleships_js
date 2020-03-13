@@ -2,7 +2,7 @@ import React from 'react';
 import Row from '../GridRow/GridRow';
 import Grid from '../../models/grid/grid';
 
-class GridDisplay extends React.Component {
+class GridPlayer extends React.Component {
   state = {
     model: new Grid(),
     orientation: 'H',
@@ -53,7 +53,7 @@ class GridDisplay extends React.Component {
 
   render() {
     return (
-      <div data-test='component-grid-display'>
+      <div data-test='component-grid-player'>
         {this.renderRows()}
         <div>
           <button onClick={this.toggleOrientation} data-test='orientation-btn'>
@@ -93,4 +93,4 @@ class GridDisplay extends React.Component {
   }
 }
 
-export default GridDisplay;
+export default GridPlayer;

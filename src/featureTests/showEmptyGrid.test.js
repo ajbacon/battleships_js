@@ -1,7 +1,7 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import EnzymeAdaptor from 'enzyme-adapter-react-16';
-import GridDisplay from '../components/GridDisplay/GridDisplay';
+import GridPlayer from '../components/GridPlayer/GridPlayer';
 
 Enzyme.configure({ adapter: new EnzymeAdaptor() });
 
@@ -12,7 +12,7 @@ describe('showEmptyGrid', () => {
   const empty = { value: '-', shipId: null };
 
   it('should render an empty grid', () => {
-    wrapper = mount(<GridDisplay />);
+    wrapper = mount(<GridPlayer />);
     // console.log(wrapper.debug());
 
     cell1 = wrapper.find({ id: 'r0_c0' });
@@ -23,7 +23,7 @@ describe('showEmptyGrid', () => {
   });
 
   it('should render an empty grid with cell object passed as props', () => {
-    wrapper = mount(<GridDisplay />);
+    wrapper = mount(<GridPlayer />);
     // console.log(wrapper.debug());
 
     cell1 = wrapper.find({ id: 'r0_c0' });

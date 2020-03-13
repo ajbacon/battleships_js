@@ -1,7 +1,7 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
-import GridDisplay from '../components/GridDisplay/GridDisplay';
+import GridPlayer from '../components/GridPlayer/GridPlayer';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
@@ -15,7 +15,7 @@ describe('placingShips', () => {
   let ship2Btn;
 
   beforeEach(() => {
-    wrapper = mount(<GridDisplay />);
+    wrapper = mount(<GridPlayer />);
     orientationBtn = wrapper.find({ 'data-test': 'orientation-btn' });
     ship5Btn = wrapper.find({ 'data-test': 'ship5-btn' });
     ship4Btn = wrapper.find({ 'data-test': 'ship4-btn' });
