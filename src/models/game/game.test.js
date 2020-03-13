@@ -19,4 +19,18 @@ describe('Game', () => {
     expect(Grid).toHaveBeenCalledTimes(1);
     expect(ComputerGrid).toHaveBeenCalledTimes(1);
   });
+
+  describe('.getPlayerGrid', () => {
+    it('should return the playerGrid when called', () => {
+      const game = new Game(Grid, ComputerGrid);
+      expect(game.getPlayerGrid()).toBeInstanceOf(Grid);
+    });
+  });
+
+  describe('.getComputerGrid', () => {
+    it('should return the playerGrid when called', () => {
+      const game = new Game(Grid, ComputerGrid);
+      expect(game.getComputerGrid()).toBeInstanceOf(ComputerGrid);
+    });
+  });
 });
