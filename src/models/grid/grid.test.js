@@ -202,4 +202,8 @@ describe('Battleships', () => {
 
     expect(grid.render()).toEqual(expected);
   });
+
+  // describe ('.receiveFire', () => {
+
+  // })
 });

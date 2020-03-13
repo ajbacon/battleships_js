@@ -15,6 +15,7 @@ class Grid {
     if (cell.value === 'x' || cell.value === 'o') {
       return false;
     }
+
     // check if grid already played
     // apply an X or a 0 for a hit or a miss
   };
