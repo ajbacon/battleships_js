@@ -2,6 +2,7 @@ import React from 'react';
 import GridPlayer from '../GridPlayer/GridPlayer';
 import GridComputer from '../GridComputer/GridComputer';
 import GameModel from '../../models/gameModel/gameModel';
+import MessageBox from '../MessageBox/MessageBox';
 import Classes from './Game.module.css';
 
 class Game extends React.Component {
@@ -44,6 +45,9 @@ class Game extends React.Component {
             toggleOrientation={this.toggleOrientation}
             orientation={this.state.orientation}
           />
+        </div>
+        <div>
+          <MessageBox />
         </div>
         <div style={{ margin: 20 }}>
           <GridComputer />
