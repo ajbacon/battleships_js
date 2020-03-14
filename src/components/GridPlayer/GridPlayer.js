@@ -67,28 +67,28 @@ class GridPlayer extends React.Component {
           </button>
           <button
             value='5'
-            onClick={this.toggleShipLength}
+            onClick={this.props.toggleShipLength}
             data-test='ship5-btn'
           >
             5
           </button>
           <button
             value='4'
-            onClick={this.toggleShipLength}
+            onClick={this.props.toggleShipLength}
             data-test='ship4-btn'
           >
             4
           </button>
           <button
             value='3'
-            onClick={this.toggleShipLength}
+            onClick={this.props.toggleShipLength}
             data-test='ship3-btn'
           >
             3
           </button>
           <button
             value='2'
-            onClick={this.toggleShipLength}
+            onClick={this.props.toggleShipLength}
             data-test='ship2-btn'
           >
             2

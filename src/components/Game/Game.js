@@ -8,7 +8,7 @@ class Game extends React.Component {
   state = {
     gameModel: new GameModel(),
     orientation: 'H',
-    shipLength: '4'
+    shipLength: 2
   };
 
   handlePlayerCellClick = coord => {
@@ -22,6 +22,12 @@ class Game extends React.Component {
     });
   };
 
+  toggleShipLength = e => {
+    this.setState({
+      shipLength: parseInt(e.target.value)
+    });
+  };
+
   render() {
     return (
       <div className={Classes.Game} data-test='component-game'>
@@ -29,6 +35,7 @@ class Game extends React.Component {
           <GridPlayer
             model={this.state.gameModel.getPlayerGrid()}
             onClick={this.handlePlayerCellClick}
+            toggleShipLength={this.toggleShipLength}
           />
         </div>
         <div style={{ margin: 20 }}>
