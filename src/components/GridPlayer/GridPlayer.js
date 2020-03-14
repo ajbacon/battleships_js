@@ -49,7 +49,7 @@ class GridPlayer extends React.Component {
           id={`r${i}`}
           cells={data[i]}
           yCoord={i}
-          onClick={this.handleCellClick}
+          onClick={this.props.onClick}
         />
       );
     }
