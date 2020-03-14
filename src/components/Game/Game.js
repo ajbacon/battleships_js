@@ -12,7 +12,6 @@ class Game extends React.Component {
   };
 
   handlePlayerCellClick = coord => {
-    console.log(coord);
     const updatedModel = this.state.gameModel;
     updatedModel
       .getPlayerGrid()

@@ -33,6 +33,7 @@ class GridComputer extends React.Component {
           cells={data[i]}
           yCoord={i}
           onClick={this.handleCellClick}
+          player={'comp'}
         />
       );
     }

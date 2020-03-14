@@ -1,33 +1,41 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import EnzymeAdaptor from 'enzyme-adapter-react-16';
-import GridPlayer from '../components/GridPlayer/GridPlayer';
+import Game from '../components/Game/Game';
 
 Enzyme.configure({ adapter: new EnzymeAdaptor() });
 
 describe('showEmptyGrid', () => {
   let wrapper;
-  let cell1;
-  let cell2;
+  let p1_cell1;
+  let p1_cell2;
+  let comp_cell1;
+  let comp_cell2;
   const empty = { value: '-', shipId: null };
 
-  it('should render an empty grid', () => {
-    wrapper = mount(<GridPlayer />);
-    cell1 = wrapper.find({ id: 'r0_c0' });
-    cell2 = wrapper.find({ id: 'r9_c9' });
+  it('should render an empty grid for the player and the computer', () => {
+    wrapper = mount(<Game />);
+    p1_cell1 = wrapper.find({ id: 'p1_r0_c0' });
+    p1_cell2 = wrapper.find({ id: 'p1_r9_c9' });
+    comp_cell1 = wrapper.find({ id: 'comp_r0_c0' });
+    comp_cell2 = wrapper.find({ id: 'comp_r9_c9' });
 
-    expect(cell1).toHaveLength(1);
-    expect(cell2).toHaveLength(1);
+    expect(p1_cell1).toHaveLength(1);
+    expect(p1_cell2).toHaveLength(1);
+    expect(comp_cell1).toHaveLength(1);
+    expect(comp_cell2).toHaveLength(1);
   });
 
   it('should render an empty grid with cell object passed as props', () => {
-    wrapper = mount(<GridPlayer />);
-    cell1 = wrapper.find({ id: 'r0_c0' });
-    cell2 = wrapper.find({ id: 'r9_c9' });
+    wrapper = mount(<Game />);
+    p1_cell1 = wrapper.find({ id: 'p1_r0_c0' });
+    p1_cell2 = wrapper.find({ id: 'p1_r9_c9' });
+    comp_cell1 = wrapper.find({ id: 'comp_r0_c0' });
+    comp_cell2 = wrapper.find({ id: 'comp_r9_c9' });
 
-    expect(cell1).toHaveLength(1);
-    expect(cell2).toHaveLength(1);
-    expect(cell1.props().cellData).toEqual(empty);
-    expect(cell2.props().cellData).toEqual(empty);
+    expect(p1_cell1.props().cellData).toEqual(empty);
+    expect(p1_cell2.props().cellData).toEqual(empty);
+    expect(comp_cell1.props().cellData).toEqual(empty);
+    expect(comp_cell2.props().cellData).toEqual(empty);
   });
 });

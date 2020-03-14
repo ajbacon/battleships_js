@@ -17,7 +17,7 @@ describe('<GridDisplay />', () => {
       cells.push(empty);
     }
 
-    wrapper = setup(GridRow, { id: 'r0', cells: cells });
+    wrapper = setup(GridRow, { id: 'r0', cells: cells, player: 'p1' });
     gridRowComponent = findByTestAttr(wrapper, 'component-grid-row');
     gridCellComponent = findByTestAttr(wrapper, 'component-grid-cell');
   });
@@ -33,7 +33,7 @@ describe('<GridDisplay />', () => {
   it('passes cell coordinate as a prop to each cell', () => {
     for (let i = 0; i < 10; i++) {
       expect(
-        gridCellComponent.find({ id: `r0_c${i}` }).props().cellData
+        gridCellComponent.find({ id: `p1_r0_c${i}` }).props().cellData
       ).toEqual(empty);
     }
   });
