@@ -28,6 +28,12 @@ class Game extends React.Component {
     });
   };
 
+  toggleOrientation = () => {
+    this.setState({
+      orientation: this.state.orientation === 'H' ? 'V' : 'H'
+    });
+  };
+
   render() {
     return (
       <div className={Classes.Game} data-test='component-game'>
@@ -36,6 +42,8 @@ class Game extends React.Component {
             model={this.state.gameModel.getPlayerGrid()}
             onClick={this.handlePlayerCellClick}
             toggleShipLength={this.toggleShipLength}
+            toggleOrientation={this.toggleOrientation}
+            orientation={this.state.orientation}
           />
         </div>
         <div style={{ margin: 20 }}>

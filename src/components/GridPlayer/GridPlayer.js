@@ -62,8 +62,11 @@ class GridPlayer extends React.Component {
         <div className={Classes.GridPlayer}>{this.renderRows()}</div>
 
         <div>
-          <button onClick={this.toggleOrientation} data-test='orientation-btn'>
-            Orientation {this.state.orientation}
+          <button
+            onClick={this.props.toggleOrientation}
+            data-test='orientation-btn'
+          >
+            Orientation {this.props.orientation}
           </button>
           <button
             value='5'
