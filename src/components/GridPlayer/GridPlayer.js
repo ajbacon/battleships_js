@@ -1,8 +1,9 @@
 import React from 'react';
 import Row from '../GridRow/GridRow';
 import Grid from '../../models/grid/grid';
+import Classes from './GridPlayer.module.css';
 
-class GridDisplay extends React.Component {
+class GridPlayer extends React.Component {
   state = {
     model: new Grid(),
     orientation: 'H',
@@ -10,15 +11,20 @@ class GridDisplay extends React.Component {
   };
 
   handleCellClick = coord => {
-    const updatedModel = this.state.model;
-    updatedModel.placeShip(
+    this.props.model.placeShip(
       coord,
       this.state.shipLength,
       this.state.orientation
     );
-    this.setState({
-      model: updatedModel
-    });
+    // const updatedModel = this.state.model;
+    // updatedModel.placeShip(
+    //   coord,
+    //   this.state.shipLength,
+    //   this.state.orientation
+    // );
+    // this.setState({
+    //   model: updatedModel
+    // });
   };
 
   toggleOrientation = () => {
@@ -31,12 +37,11 @@ class GridDisplay extends React.Component {
     this.setState({
       shipLength: parseInt(e.target.value)
     });
-    // console.log(parseInt(e.target.value));
   };
 
   renderRows = () => {
     let res = [];
-    let data = this.state.model.render();
+    let data = this.props.model.render();
     for (let i = 0; i < 10; i++) {
       res.push(
         <Row
@@ -44,7 +49,8 @@ class GridDisplay extends React.Component {
           id={`r${i}`}
           cells={data[i]}
           yCoord={i}
-          onClick={this.handleCellClick}
+          onClick={this.props.onClick}
+          player={'p1'}
         />
       );
     }
@@ -53,36 +59,40 @@ class GridDisplay extends React.Component {
 
   render() {
     return (
-      <div data-test='component-grid-display'>
-        {this.renderRows()}
+      <div data-test='component-grid-player'>
+        <div className={Classes.GridPlayer}>{this.renderRows()}</div>
+
         <div>
-          <button onClick={this.toggleOrientation} data-test='orientation-btn'>
-            Orientation {this.state.orientation}
+          <button
+            onClick={this.props.toggleOrientation}
+            data-test='orientation-btn'
+          >
+            Orientation {this.props.orientation}
           </button>
           <button
             value='5'
-            onClick={this.toggleShipLength}
+            onClick={this.props.toggleShipLength}
             data-test='ship5-btn'
           >
             5
           </button>
           <button
             value='4'
-            onClick={this.toggleShipLength}
+            onClick={this.props.toggleShipLength}
             data-test='ship4-btn'
           >
             4
           </button>
           <button
             value='3'
-            onClick={this.toggleShipLength}
+            onClick={this.props.toggleShipLength}
             data-test='ship3-btn'
           >
             3
           </button>
           <button
             value='2'
-            onClick={this.toggleShipLength}
+            onClick={this.props.toggleShipLength}
             data-test='ship2-btn'
           >
             2
@@ -93,4 +103,4 @@ class GridDisplay extends React.Component {
   }
 }
 
-export default GridDisplay;
+export default GridPlayer;

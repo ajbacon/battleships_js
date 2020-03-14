@@ -1,7 +1,5 @@
 import Grid from '../grid/grid';
 
-class ComputerGrid extends Grid {
-  placeRandomShips;
-}
+class ComputerGrid extends Grid {}
 
 export default ComputerGrid;
