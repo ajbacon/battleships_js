@@ -13,8 +13,6 @@ describe('showEmptyGrid', () => {
 
   it('should render an empty grid', () => {
     wrapper = mount(<GridPlayer />);
-    // console.log(wrapper.debug());
-
     cell1 = wrapper.find({ id: 'r0_c0' });
     cell2 = wrapper.find({ id: 'r9_c9' });
 
@@ -24,12 +22,8 @@ describe('showEmptyGrid', () => {
 
   it('should render an empty grid with cell object passed as props', () => {
     wrapper = mount(<GridPlayer />);
-    // console.log(wrapper.debug());
-
     cell1 = wrapper.find({ id: 'r0_c0' });
     cell2 = wrapper.find({ id: 'r9_c9' });
-
-    console.log(cell1.props().cellData);
 
     expect(cell1).toHaveLength(1);
     expect(cell2).toHaveLength(1);

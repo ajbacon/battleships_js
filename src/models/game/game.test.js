@@ -13,8 +13,6 @@ describe('Game', () => {
 
   it('should create a new instance of Grid', () => {
     const game = new Game(Grid, ComputerGrid);
-    console.log(game.getComputerGrid());
-    console.log(game.getPlayerGrid());
 
     expect(Grid).toHaveBeenCalledTimes(1);
     expect(ComputerGrid).toHaveBeenCalledTimes(1);
