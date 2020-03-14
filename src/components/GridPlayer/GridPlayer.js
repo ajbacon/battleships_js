@@ -11,15 +11,20 @@ class GridPlayer extends React.Component {
   };
 
   handleCellClick = coord => {
-    const updatedModel = this.state.model;
-    updatedModel.placeShip(
+    this.props.model.placeShip(
       coord,
       this.state.shipLength,
       this.state.orientation
     );
-    this.setState({
-      model: updatedModel
-    });
+    // const updatedModel = this.state.model;
+    // updatedModel.placeShip(
+    //   coord,
+    //   this.state.shipLength,
+    //   this.state.orientation
+    // );
+    // this.setState({
+    //   model: updatedModel
+    // });
   };
 
   toggleOrientation = () => {
@@ -32,12 +37,11 @@ class GridPlayer extends React.Component {
     this.setState({
       shipLength: parseInt(e.target.value)
     });
-    // console.log(parseInt(e.target.value));
   };
 
   renderRows = () => {
     let res = [];
-    let data = this.state.model.render();
+    let data = this.props.model.render();
     for (let i = 0; i < 10; i++) {
       res.push(
         <Row

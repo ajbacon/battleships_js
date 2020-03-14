@@ -1,7 +1,7 @@
 import Grid from '../grid/grid';
 import ComputerGrid from '../computerGrid/computerGrid';
 
-class Game {
+class GameModel {
   constructor(playerGrid = Grid, computerGrid = ComputerGrid) {
     this.playerGrid = new playerGrid();
     this.computerGrid = new computerGrid();
@@ -16,4 +16,4 @@ class Game {
   };
 }
 
-export default Game;
+export default GameModel;

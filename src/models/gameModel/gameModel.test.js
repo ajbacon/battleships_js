@@ -1,6 +1,6 @@
 import Grid from '../grid/grid';
 import ComputerGrid from '../computerGrid/computerGrid';
-import Game from './game';
+import Game from './gameModel';
 
 jest.mock('../grid/grid');
 jest.mock('../computerGrid/computerGrid');
