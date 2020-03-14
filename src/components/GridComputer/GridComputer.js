@@ -1,6 +1,7 @@
 import React from 'react';
 import Row from '../GridRow/GridRow';
 import ComputerGrid from '../../models/computerGrid/computerGrid';
+import Classes from './GridComputer.module.css';
 
 class GridComputer extends React.Component {
   state = {
@@ -39,7 +40,11 @@ class GridComputer extends React.Component {
   };
 
   render() {
-    return <div data-test='component-grid-display'>{this.renderRows()}</div>;
+    return (
+      <div className={Classes.GridComputer} data-test='component-grid-display'>
+        {this.renderRows()}
+      </div>
+    );
   }
 }
 

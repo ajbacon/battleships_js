@@ -1,6 +1,7 @@
 import React from 'react';
 import Row from '../GridRow/GridRow';
 import Grid from '../../models/grid/grid';
+import Classes from './GridPlayer.module.css';
 
 class GridPlayer extends React.Component {
   state = {
@@ -54,7 +55,8 @@ class GridPlayer extends React.Component {
   render() {
     return (
       <div data-test='component-grid-player'>
-        {this.renderRows()}
+        <div className={Classes.GridPlayer}>{this.renderRows()}</div>
+
         <div>
           <button onClick={this.toggleOrientation} data-test='orientation-btn'>
             Orientation {this.state.orientation}
