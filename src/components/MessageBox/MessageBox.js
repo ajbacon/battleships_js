@@ -2,7 +2,11 @@ import React from 'react';
 import Classes from './MessageBox.module.css';
 
 class MessageBox extends React.Component {
-  renderMessages = () => {};
+  renderMessages = () => {
+    return this.props.messages.map(element => {
+      return <p>{element}</p>;
+    });
+  };
 
   render() {
     return (

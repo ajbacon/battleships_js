@@ -9,7 +9,7 @@ class Game extends React.Component {
   state = {
     gameModel: new GameModel(),
     orientation: 'H',
-    shipLength: 2
+    shipLength: 4
   };
 
   handlePlayerCellClick = coord => {
@@ -47,7 +47,7 @@ class Game extends React.Component {
           />
         </div>
         <div>
-          <MessageBox />
+          <MessageBox messages={this.state.gameModel.gameMessages()} />
         </div>
         <div style={{ margin: 20 }}>
           <GridComputer />

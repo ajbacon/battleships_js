@@ -1,5 +1,8 @@
 .MessageBox {
-  width: 20vw;
+  width: 25vw;
   height: 10vw;
+  padding: 5px;
   background-color: white;
+  border-radius: 1vw;
+  color: black
 }
